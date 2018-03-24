@@ -24,6 +24,12 @@
     <ClCompile Include="ch2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Assignment2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">
