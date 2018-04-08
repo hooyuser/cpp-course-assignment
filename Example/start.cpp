@@ -6,13 +6,14 @@ int main()
 	/*EXAMPLES IN TEXTBOOK*/
 	/**********************/
 
-	//Chapter1
+	/*Chapter1*/
 
 	//P1_1();
 	//P1_2();
 	//P1_3();
 
-	//Chapter2
+
+	/*Chapter2*/
 
 	//P2_1();
 	//P2_2();
@@ -28,13 +29,26 @@ int main()
 	//P2_12();
 	//P2_13();
 	//P2_14();
+	//P2_15();
+	//P2_16();
+	//P2_17();
+	//P2_18();
+	//P2_19();
+
+
+	/*Chapter3*/
+
+	//P3_1();
+	//P3_2();
+	//P3_3();
+
 
 
 	/************/
 	/*ASSIGNMENT*/
 	/************/
 
-	//Assignment1
+	/*Assignment1*/
 
 	//sortThreeNum();
 	//harmonicSeries();
@@ -43,11 +57,19 @@ int main()
 	//dispalyStars_3();
 	//multiplication();
 
-	//Assignment2
 
+	/*Assignment2*/
 	//sortTest();
-	calendarTest();
+	//calendarTest();
 
+
+	/*Assignment3*/
+	//strTest();
+
+
+	/*************/
+	/*OTHER ITEMS*/
+	/*************/
 
 	return 0;
 }

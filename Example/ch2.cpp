@@ -1,5 +1,6 @@
 #include<iostream>
 #include<iomanip>
+
 using namespace std;
 
 void P2_1()
@@ -189,11 +190,111 @@ void P2_14()
 	cout << "x= " << x << " y= " << y << endl;
 }
 
+int max(int x, int y, int z)
+{
+	int t;
+	t = x > y ? x : y;
+	return (t > z ? t : z);
+}
+
+int min(int x, int y, int z)
+{
+	int t;
+	t = x < y ? x : y;
+	return (t < z ? t : z);
+}
+
+int dif(int x, int y, int z)
+{
+	return max(x, y, z) - min(x, y, z);
+}
+
 void P2_15()
 {
-	int x = 2, y = 5;
-	cout << "x= " << x << " y= " << y << endl;
-	swap(x, y);
-	cout << "after swap: ";
-	cout << "x= " << x << " y= " << y << endl;
+	int a, b, c;
+	cin >> a >> b >> c;
+	cout << "Max-Min=" << dif(a, b, c) << endl;
+}
+
+int fac(int n)
+{
+	int t;
+	if (n == 1)
+		t = 1;
+	else
+		t = n * fac(n - 1);
+	return (t);
+}
+
+void P2_16()
+{
+	const int max_n = 12;
+	int n;
+	cout << "Input an integer number:";
+	cin >> n;
+	if (n >= 1 && n <= max_n)
+		cout << "Factorial of " << n << " is: " << fac(n) << endl;
+	else
+		cout << "Invalid n." << endl;
+}
+
+inline double CirArea(double radius)
+{
+	return 3.14*radius*radius;
+}
+
+void P2_17()
+{
+	double r1(1.0), r2(2);
+	cout << CirArea(r1) << endl;
+	cout << CirArea(r1 + r2 + 4) << endl;
+}
+
+//P2_18
+int add(int x, int y)
+{
+	cout << "(int, int)\t";
+	return x + y;
+}
+
+double add(double x, double y)
+{
+	cout << "(double, double)\t";
+	return x + y;
+}
+
+int add(int x, double y)
+{
+	cout << "(int, double)\t";
+	return int(x + y);
+}
+
+double add(double x, int y)
+{
+	cout << "(double, int)\t";
+	return x + y;
+}
+
+void P2_18()
+{
+	cout << add(9, 8) << endl;
+	cout << add(9.0, 8.0) << endl;
+	cout << add(9, 8.0) << endl;
+	cout << add(9.0, 8) << endl;
+}
+
+void P2_19()
+{
+	int x, i(0);
+	srand(124);
+	do
+	{
+		x = rand();
+		if (x >= 5 && x <= 1000)
+		{
+			x = (x / 5) * 5; //产生5-1000之间5的倍数
+			cout << x / 10.0 << "\t";
+			i++;
+		}
+	} while (i < 100);
 }

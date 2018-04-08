@@ -30,6 +30,15 @@
     <ClCompile Include="Assignment1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Others.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ch3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">
