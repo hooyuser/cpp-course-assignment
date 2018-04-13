@@ -76,3 +76,32 @@ void strTest();
 void swapPointers(int*& pa, int *& pb);
 void swapPointers(int** pa, int ** pb);
 void pointerConvert();
+void testTraverseByte();
+void testToBitArray();
+
+
+//function templates
+template<class T>
+T traverseByte(T a)
+{
+	char* const pHead = (char*)&a;
+	for (int i = 0; i < sizeof(T) / 2; i++)
+	{
+		std::swap(*(pHead + i), *(pHead + sizeof(T) - i - 1));
+	}
+	return a;
+}
+
+template<class T>
+void toBitArray(const T a, char* bitArray) //将 a 所占内存中的二进制数转换为 '0'，'1' 组成的 char 数组，从左至右地址由低到高
+{
+	char* const pHead = (char*)&a;
+	for (int i = 0; i < sizeof(T); i++)
+	{
+		for (int j = 7; j >= 0; j--)
+		{
+			bitArray[8 * i + 7 - j] = ((pHead[i] >> j) & 1) + '0';
+		}
+	}
+	bitArray[8 * sizeof(T)] = 0;
+}

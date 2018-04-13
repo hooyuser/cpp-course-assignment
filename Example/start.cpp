@@ -1,4 +1,7 @@
 #include "head.h"
+#include<iostream>
+#include<iomanip>
+using namespace std;
 
 int main()
 {
@@ -70,7 +73,9 @@ int main()
 	/*************/
 	/*OTHER ITEMS*/
 	/*************/
-	pointerConvert();
+	//pointerConvert();
+	//testTraverseByte();
+	testToBitArray();
 
 	return 0;
 }

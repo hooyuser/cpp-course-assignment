@@ -34,3 +34,28 @@ void pointerConvert()
 	cout << "A[0] = " << A[0] << endl; //0x FF FF FF FF -> -1
 	cout << "A[1] = " << A[1] << endl; //0x FE FF FF FF -> -2
 }
+
+void testTraverseByte()
+{
+	int n = 2341;
+	double pi = 3.14159265;
+	cout << "n = " << n << endl;
+	cout << (n = traverseByte<int>(n)) << endl;
+	cout << traverseByte<int>(n) << endl;
+	cout << "pi = " << pi << endl;
+	cout << (pi = traverseByte<double>(pi)) << endl;
+	cout << traverseByte<double>(pi) << endl;
+}
+
+void testToBitArray()
+{
+	char n = 3;
+	char ch1[100] = { 0 };
+	toBitArray<char>(n, ch1);
+	cout << ch1 << endl;
+
+	double pi = 3.14159265;
+	char ch2[100] = { 0 };
+	toBitArray<double>(pi, ch2);
+	cout << ch2 << endl;
+}

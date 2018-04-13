@@ -107,8 +107,8 @@ const int getNextMonthFisrtDayIsWhatDay(int nWhatDay, int nDaysOfMonth) //nWhatD
 
 void calendarTest()
 {
-	//printMonthCalendar(7, 31);
-	//cout << getNextMonthFisrtDayIsWhatDay(3, 31);
+	printMonthCalendar(7, 31);
+	cout << getNextMonthFisrtDayIsWhatDay(3, 31);
 	printAnnualCalendar(2018, 1, 6);
 }
 
