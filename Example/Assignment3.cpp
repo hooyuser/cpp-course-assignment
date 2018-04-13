@@ -43,9 +43,13 @@ int myStrCompare(const char* pStr1, const char* pStr2)
 	while (*(pStr1++) && *(pStr2++))
 	{
 		if (*pStr1 > *pStr2)
+		{
 			return 1;
+		}
 		else if (*pStr1 < *pStr2)
+		{
 			return -1;
+		}
 	}
 	return 0;
 }
@@ -71,19 +75,19 @@ void eraseDigital(char *pStr)
 {
 	char* ins = pStr; //用ins记录待插入位置
 	while (!isNumber(*(pStr++))) //将两个指针置于初始位置
+	{
 		ins++;
-	while (*pStr)
+	}
+	do
 	{
 		if (!isNumber(*pStr)) //如果pStr所指位置不是数字，
 		{
 			*(ins++) = *(pStr); //则进行一次插入，并将指针ins后移
 		}
-		pStr++;
-	}
-	*ins = '\0';
+	} while (*(pStr++));
 }
 
-
+//测试样例
 void strTest()
 {
 	char myChar[100] = { '0','1','2','3','\0' };
@@ -100,6 +104,10 @@ void strTest()
 	myStrCat(pchar, "a1b2c3d4");
 	cout << pchar << endl;
 	myStrCpy(pchar, "we23wr245e3er5");
+	cout << pchar << endl;
+	eraseDigital(pchar);
+	cout << pchar << endl;
+	myStrCpy(pchar, "45254");
 	cout << pchar << endl;
 	eraseDigital(pchar);
 	cout << pchar << endl;

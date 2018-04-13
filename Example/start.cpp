@@ -70,6 +70,7 @@ int main()
 	/*************/
 	/*OTHER ITEMS*/
 	/*************/
+	pointerConvert();
 
 	return 0;
 }

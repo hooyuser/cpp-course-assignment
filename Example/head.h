@@ -75,3 +75,4 @@ void strTest();
 //others
 void swapPointers(int*& pa, int *& pb);
 void swapPointers(int** pa, int ** pb);
+void pointerConvert();
