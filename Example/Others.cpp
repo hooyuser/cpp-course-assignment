@@ -16,7 +16,7 @@ void swapPointers(int** pa, int ** pb)
 	*pb = pc;
 }
 
-void pointerConvert()
+void pointerConvert()  //指针的强制转换演示
 {
 	//下面用0x开头的十六进制表示内存中的二进制数，从左至右地址由低到高 
 	int A[10] = { 1,2,3,4,5 };
@@ -35,27 +35,64 @@ void pointerConvert()
 	cout << "A[1] = " << A[1] << endl; //0x FE FF FF FF -> -2
 }
 
-void testTraverseByte()
+void traverseInt(int& n)
 {
-	int n = 2341;
-	double pi = 3.14159265;
-	cout << "n = " << n << endl;
-	cout << (n = traverseByte<int>(n)) << endl;
-	cout << traverseByte<int>(n) << endl;
-	cout << "pi = " << pi << endl;
-	cout << (pi = traverseByte<double>(pi)) << endl;
-	cout << traverseByte<double>(pi) << endl;
+	n = ((n >> 24) & 0xFF) | ((n >> 8) & 0xFF00) | ((n << 8) & 0xFF0000) | ((n << 24) & 0xFF000000);//从低地址到高地址依次提取字节
 }
 
 void testToBitArray()
 {
-	char n = 3;
-	char ch1[100] = { 0 };
-	toBitArray<char>(n, ch1);
-	cout << ch1 << endl;
+	char chBit[100] = { 0 };
+
+	char ch = 3;
+	toBitArray<char>(ch, chBit);
+	cout << chBit << endl;
+
+	int n = 17;
+	toBitArray<int>(n, chBit);
+	cout << chBit << endl;
 
 	double pi = 3.14159265;
-	char ch2[100] = { 0 };
-	toBitArray<double>(pi, ch2);
-	cout << ch2 << endl;
+	toBitArray<double>(pi, chBit);
+	cout << chBit << endl;
+}
+
+void testTraverseByteWise()  //用函数模板traverseByte对变量逐字节倒置
+{
+	char chBit[100] = { 0 };
+	int n = 1;
+	cout << "n = " << n << endl;
+	toBitArray<int>(n, chBit);
+	cout << chBit << endl << endl;
+
+	cout << "Traverse n" << endl;
+	cout << "n = " << (n = traverseByteWise<int>(n)) << endl;
+	toBitArray<int>(n, chBit);
+	cout << chBit << endl << endl;
+
+	cout << "Traverse n" << endl;
+	cout << "n = " << (n = traverseByteWise<int>(n)) << endl;
+	toBitArray<int>(n, chBit);
+	cout << chBit << endl << endl;
+
+	cout << "Traverse n" << endl;
+	traverseInt(n);
+	cout << "n = " << n << endl;
+	toBitArray<int>(n, chBit);
+	cout << chBit << endl << endl;
+
+	double pi = 3.14159265;
+	cout << "pi = " << pi << endl;
+	toBitArray<double>(pi, chBit);
+	cout << chBit << endl << endl;
+
+	cout << "Traverse pi" << endl;
+	cout << "pi = " << (pi = traverseByteWise<double>(pi)) << endl;
+	toBitArray<double>(pi, chBit);
+	cout << chBit << endl << endl;
+
+	cout << "Traverse pi" << endl;
+	cout << "pi = " << (pi = traverseByteWise<double>(pi)) << endl;
+	toBitArray<double>(pi, chBit);
+	cout << chBit << endl << endl;
 }

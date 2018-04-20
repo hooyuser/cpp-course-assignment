@@ -71,18 +71,22 @@ void eraseDigital(char *pStr);
 void strTest();
 
 
+//Assignment4
+void traverseMat(int* p, int nRow, int nCol);
+void manipulateMat();
 
 //others
 void swapPointers(int*& pa, int *& pb);
 void swapPointers(int** pa, int ** pb);
 void pointerConvert();
-void testTraverseByte();
+void traverseInt(int& n);
+void testTraverseByteWise();
 void testToBitArray();
 
 
 //function templates
-template<class T>
-T traverseByte(T a)
+template<class T>  //±äÁ¿×Ö½Úµ¹ÖÃ
+T traverseByteWise(T a)
 {
 	char* const pHead = (char*)&a;
 	for (int i = 0; i < sizeof(T) / 2; i++)

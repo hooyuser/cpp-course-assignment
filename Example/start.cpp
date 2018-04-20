@@ -1,6 +1,8 @@
-#include "head.h"
+#include"head.h"
 #include<iostream>
 #include<iomanip>
+
+
 using namespace std;
 
 int main()
@@ -62,20 +64,27 @@ int main()
 
 
 	/*Assignment2*/
+
 	//sortTest();
 	//calendarTest();
 
 
 	/*Assignment3*/
+
 	//strTest();
 
+
+	/*Assignment4*/
+	//manipulateMat();
 
 	/*************/
 	/*OTHER ITEMS*/
 	/*************/
+
 	//pointerConvert();
-	//testTraverseByte();
-	testToBitArray();
+	testTraverseByteWise();
+	//testToBitArray();
+
 
 	return 0;
 }

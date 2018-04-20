@@ -123,9 +123,13 @@
     <ClCompile Include="ch3.cpp" />
     <ClCompile Include="Others.cpp" />
     <ClCompile Include="start.cpp" />
+    <ClCompile Include="Assignment4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="sourse_file.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
