@@ -39,6 +39,9 @@
     <ClCompile Include="Assignment3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ch4.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Assignment4.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

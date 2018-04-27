@@ -30,9 +30,11 @@ void P2_19();
 void P3_1();
 void P3_2();
 void P3_3();
-
-
-
+void P3_4();
+void P3_5();
+void P3_6();
+void P3_7();
+void P3_13();
 
 
 

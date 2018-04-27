@@ -121,6 +121,7 @@
     <ClCompile Include="ch1.cpp" />
     <ClCompile Include="ch2.cpp" />
     <ClCompile Include="ch3.cpp" />
+    <ClCompile Include="ch4.cpp" />
     <ClCompile Include="Others.cpp" />
     <ClCompile Include="start.cpp" />
     <ClCompile Include="Assignment4.cpp" />

@@ -46,7 +46,11 @@ int main()
 	//P3_1();
 	//P3_2();
 	//P3_3();
-
+	//P3_4();
+	//P3_5();
+	//P3_6();
+	//P3_7();
+	//P3_13();
 
 
 	/************/
@@ -82,8 +86,9 @@ int main()
 	/*************/
 
 	//pointerConvert();
-	testTraverseByteWise();
+	//testTraverseByteWise();
 	//testToBitArray();
+	
 
 
 	return 0;
