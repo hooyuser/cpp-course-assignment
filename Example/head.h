@@ -27,6 +27,7 @@ void P2_18();
 void P2_19();
 
 //Chapter3
+
 void P3_1();
 void P3_2();
 void P3_3();
@@ -34,7 +35,8 @@ void P3_4();
 void P3_5();
 void P3_6();
 void P3_7();
-void P3_13();
+namespace P3_13 { void P3_13(); }
+namespace P3_14 { void P3_14(); }
 
 
 
@@ -76,6 +78,19 @@ void strTest();
 //Assignment4
 void traverseMat(int* p, int nRow, int nCol);
 void manipulateMat();
+
+//Assignment5
+struct Stu_info
+{
+	char sName[32] = { 0 };
+	char sNum[32] = { 0 };
+	float fScore[5] = { 0 };
+	Stu_info* next = 0;
+};
+typedef struct Stu_info stuNode;
+
+void swapNode(stuNode* pPreA, stuNode* pA, stuNode* pB);
+void readTxtFile(const char* fileName);
 
 //others
 void swapPointers(int*& pa, int *& pb);

@@ -96,3 +96,8 @@ void testTraverseByteWise()  //用函数模板traverseByte对变量逐字节倒置
 	toBitArray<double>(pi, chBit);
 	cout << chBit << endl << endl;
 }
+
+void writeTxtFile(char* TxtFile)
+{
+
+}

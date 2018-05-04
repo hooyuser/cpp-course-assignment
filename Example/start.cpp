@@ -5,11 +5,12 @@
 
 using namespace std;
 
+
 int main()
 {
-	/**********************/
-	/*EXAMPLES IN TEXTBOOK*/
-	/**********************/
+	/********************************/
+	/******EXAMPLES IN TEXTBOOK******/
+	/********************************/
 
 	/*Chapter1*/
 
@@ -50,12 +51,12 @@ int main()
 	//P3_5();
 	//P3_6();
 	//P3_7();
-	//P3_13();
+	//P3_13::P3_13();
+	P3_14::P3_14();
 
-
-	/************/
-	/*ASSIGNMENT*/
-	/************/
+	/**********************/
+	/******ASSIGNMENT******/
+	/**********************/
 
 	/*Assignment1*/
 
@@ -74,21 +75,25 @@ int main()
 
 
 	/*Assignment3*/
-
 	//strTest();
 
 
 	/*Assignment4*/
 	//manipulateMat();
 
-	/*************/
-	/*OTHER ITEMS*/
-	/*************/
+
+	/*Assignment5*/
+	readTxtFile("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\学生成绩链表测试.txt");
+
+
+	/***********************/
+	/******OTHER ITEMS******/
+	/***********************/
 
 	//pointerConvert();
 	//testTraverseByteWise();
 	//testToBitArray();
-	
+
 
 
 	return 0;

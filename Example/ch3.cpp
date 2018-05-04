@@ -280,58 +280,60 @@ void P3_7()
 
 
 //P3_13
-struct student
+namespace P3_13
 {
-	char name[20];
-	float score;
-};
-
-int input(student s[], int n)   //返回输入人数
-{
-	int i;
-	for (i = 0; i < n; i++)
+	struct student
 	{
-		cin >> s[i].name >> s[i].score;
-		if (s[i].score < 0) break;
-	}
-	return i;
-}
+		char name[20];
+		float score;
+	};
 
-void output(student s[], int n)
-{
-	for (int i = 0; i < n; i++)
+	int input(student s[], int n)   //返回输入人数
 	{
-		cout << s[i].name << "\t" << s[i].score << endl;
-	}
-}
-
-void sort(student a[], int n)
-{
-	for (int i = 0; i < n - 1; i++)
-	{
-		for (int j = i + 1; j < n; j++)
+		int i;
+		for (i = 0; i < n; i++)
 		{
-			if (a[i].score < a[j].score)
+			cin >> s[i].name >> s[i].score;
+			if (s[i].score < 0) break;
+		}
+		return i;
+	}
+
+	void output(student s[], int n)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			cout << s[i].name << "\t" << s[i].score << endl;
+		}
+	}
+
+	void sort(student a[], int n)
+	{
+		for (int i = 0; i < n - 1; i++)
+		{
+			for (int j = i + 1; j < n; j++)
 			{
-				student t;
-				t = a[i];
-				a[i] = a[j];
-				a[j] = t;
+				if (a[i].score < a[j].score)
+				{
+					student t;
+					t = a[i];
+					a[i] = a[j];
+					a[j] = t;
+				}
 			}
 		}
 	}
-}
 
-void P3_13()
-{
-	const int MaxNum = 100;      //最大人数
-	int num;                     //实际人数 
-	student s[MaxNum];
-	num = input(s, MaxNum);
-	sort(s, num);
-	output(s, num);
+	void P3_13()
+	{
+		const int MaxNum = 100;      //最大人数
+		int num;                     //实际人数 
+		student s[MaxNum];
+		num = input(s, MaxNum);
+		sort(s, num);
+		output(s, num);
+	}
 }
-
 
 //P3_14
 namespace P3_14
@@ -345,13 +347,13 @@ namespace P3_14
 
 	typedef student NODE;
 
-	NODE* Search(NODE* head, int key)
+	NODE* Search(NODE* head, int key)    //返回从左至右第一个 score 小于 key 的节点的前驱，若无，返回尾节点
 	{
 		NODE* p;
 		p = head;
-		while (p->next != NULL)
+		while (p->next != NULL)          //当 p 不是尾节点时
 		{
-			if (p->next->score < key)
+			if (p->next->score < key)      //如果 p 的后继的 score 小于 key
 			{
 				return p;
 			}
@@ -362,35 +364,35 @@ namespace P3_14
 
 	void InsertNode(NODE* p, NODE* newp)  //p 后插入节点 newp
 	{
-		newp->next = p->next;
-		p->next = newp;
+		newp->next = p->next;             //设置 newp 的后继
+		p->next = newp;                   //重置 p 的后继 
 	}
 
-	void DelNode(NODE* p)  //p 后插入节点 newp
+	void DelNode(NODE* p)           //删除 p 节点的后继
 	{
 		NODE* q;
 		if (p->next != NULL)
 		{
-			q = p->next; 
-			p->next = q->next;
-			delete q;
+			q = p->next;            //将指向 p 后继的一个指针暂存为 q
+			p->next = q->next;      //重置 p 的后继
+			delete q;               //通过 q 删除 p
 		}
 	}
 
-	void DelList(NODE* head)
+	void DelList(NODE* head)          //销毁以 head 为首节点的链表
 	{
 		NODE* p;
-		p = head;
-		while (head->next != NULL)
+		p = head;                     //将待删除节点 p 初始化为 head
+		while (head->next != NULL)    //当 head 不是尾节点时：
 		{
-			head = head->next;
-			delete p;
-			p = head;
+			head = head->next;			//head 后移
+			delete p;                   //删除 p 节点
+			p = head;                   //再次将待删除节点 p 设置为 head
 		}
-		delete head;
+		delete head;                  //此时 head 为尾节点，删除 head
 	}
 
-	void DispList(NODE* head)
+	void DispList(NODE* head)         //显示链表各元素
 	{
 		NODE* p;
 		p = head;
@@ -400,6 +402,44 @@ namespace P3_14
 			p = p->next;
 		}
 	}
+
+	void P3_14()
+	{
+		NODE * newp, *head, *p;
+		char name[20];
+		float score, low = 60;
+		if ((newp = new NODE) == NULL)
+		{
+			cout << "new NODE fail!" << endl;
+			exit(0);
+		}
+		head = newp;
+		head->next = NULL;
+		cout << "Input name and score(-1 to exit):" << endl;
+		cin >> name >> score;                 //输入姓名和分数
+		while (score > 0)
+		{
+			if ((newp = new NODE) == NULL)
+			{
+				cout << "new NODE fail!" << endl;
+				exit(0);
+			}
+			strcpy_s(newp->name, name);       
+			newp->score = score;
+			newp->next = NULL;                           
+			p = Search(head, score);          //返回从左至右第一个分数小于当前 score 的节点的前驱，若无，返回尾节点
+			InsertNode(p, newp);              //在 p 处插入新节点 newp
+			cin >> name >> score;
+		}
+		cout << "Before delete:" << endl;
+		DispList(head);
+		for (p = Search(head, low); p->next != NULL; p = Search(head, low))  //链表已按 score 降序排列，删除小于60分的节点
+			DelNode(p);
+		cout << "After delete:" << endl;
+		DispList(head);
+		DelList(head);
+	}
 }
+
 
 

@@ -118,6 +118,7 @@
     <ClCompile Include="Assignment1.cpp" />
     <ClCompile Include="Assignment2.cpp" />
     <ClCompile Include="Assignment3.cpp" />
+    <ClCompile Include="Assignment5.cpp" />
     <ClCompile Include="ch1.cpp" />
     <ClCompile Include="ch2.cpp" />
     <ClCompile Include="ch3.cpp" />
