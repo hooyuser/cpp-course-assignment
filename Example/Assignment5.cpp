@@ -12,8 +12,28 @@ void swapNode(stuNode* pPreA, stuNode* pA, stuNode* pB)  //交换节点
 	pB->next = pA;
 }
 
+void delNode(stuNode* p)           //删除 p 节点的后继
+{
+	stuNode* pNext;
+	if (p->next != NULL)
+	{
+		pNext = p->next;            //将指向 p 后继的一个指针暂存为 pNext
+		p->next = pNext->next;      //重置 p 的后继
+		delete pNext;               //通过 q 删除 p
+	}
+}
 
-void insertNode(stuNode* p, stuNode* newp)  //p 后插入节点 newp
+stuNode* insertInnerNode(stuNode* p, stuNode* ins)  //将链表中的 ins->next 移除，并在节点 p 后插入，返回新的 ins-next
+{
+	if (p == ins) return p;
+	stuNode* insNext = ins->next;               //为 ins->next 所指空间新建指针
+	ins->next = insNext->next;                  //重置 ins 的后继 
+	insNext->next = p->next;                    //重置 insNext 的后继
+	p->next = insNext;                          //重置 p 的后继
+	return insNext;
+}
+
+void insertNode(stuNode* p, stuNode* newp)  //在 p 后插入节点 newp
 {
 	newp->next = p->next;             //设置 newp 的后继
 	p->next = newp;                   //重置 p 的后继 
@@ -22,7 +42,7 @@ void insertNode(stuNode* p, stuNode* newp)  //p 后插入节点 newp
 
 stuNode* searchLessThan(stuNode* startNode, stuNode* endNode, int key)  //返回 startNode->next 与 endNode 之间第一个 fScore[4] <= key 的节点的前驱，若无，返回endNode
 {
-	if (startNode) return;
+	if (startNode == NULL) return NULL;
 	stuNode* p = startNode;
 	while (p != endNode)          //当 p 不是尾节点时
 	{
@@ -37,15 +57,14 @@ stuNode* searchLessThan(stuNode* startNode, stuNode* endNode, int key)  //返回 s
 
 void listInsertSort_D(stuNode* head)    //插入排序（降序）
 {
-	if (head)return;
-	if (head->next) return;
+	if (head == NULL) return;
+	if (head->next == NULL) return;
 	stuNode* p = head->next;
-	while (p->next)
+	while (p->next != NULL)
 	{
-		insertNode(searchLessThan(head, p, p->next->fScore[4]), p->next);
+		p = insertInnerNode(searchLessThan(head, p, p->next->fScore[4]), p); //将 p->next 插入到 head 到 p 之间的适当位置	
 		p = p->next;
 	}
-
 }
 
 void readTxtFile(const char* fileName)
@@ -70,11 +89,13 @@ void readTxtFile(const char* fileName)
 		}
 		pT->next = pStu;
 		pT = pT->next;
-		pT->next = 0;
+		pT->next = NULL;
 	}
 	in.close();
 
-	stuNode* pStart = pHeader;
+	listInsertSort_D(pHeader);
+
+	/*stuNode* pStart = pHeader;
 	while (pStart->next->next->next != 0)
 	{
 		stuNode* pPreA = pStart;
@@ -94,6 +115,7 @@ void readTxtFile(const char* fileName)
 		}
 		pStart = pStart->next;
 	}
+	*/
 
 	ofstream out;
 	out.open("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\输出成绩.txt");
