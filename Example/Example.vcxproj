@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="sourse_file.txt" />
+    <Text Include="学生成绩链表测试1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

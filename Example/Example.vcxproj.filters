@@ -58,5 +58,8 @@
     <Text Include="sourse_file.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="学生成绩链表测试1.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

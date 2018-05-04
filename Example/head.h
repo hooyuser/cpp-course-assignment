@@ -82,8 +82,8 @@ void manipulateMat();
 //Assignment5
 struct Stu_info
 {
-	char sName[32] = { 0 };
 	char sNum[32] = { 0 };
+	char sName[32] = { 0 };
 	float fScore[5] = { 0 };
 	Stu_info* next = 0;
 };

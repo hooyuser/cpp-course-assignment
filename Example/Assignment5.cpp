@@ -1,9 +1,22 @@
 #include<iostream>
+#include<iomanip>
 #include<fstream>
 #include"head.h"
 
 using namespace std;
 
+void DelList(stuNode* head)          //销毁以 head 为首节点的链表
+{
+	stuNode* p;
+	p = head;                     //将待删除节点 p 初始化为 head
+	while (head->next != NULL)    //当 head 不是尾节点时：
+	{
+		head = head->next;			//head 后移
+		delete p;                   //删除 p 节点
+		p = head;                   //再次将待删除节点 p 设置为 head
+	}
+	delete head;                  //此时 head 为尾节点，删除 head
+}
 
 void swapNode(stuNode* pPreA, stuNode* pA, stuNode* pB)  //交换节点
 {
@@ -12,7 +25,7 @@ void swapNode(stuNode* pPreA, stuNode* pA, stuNode* pB)  //交换节点
 	pB->next = pA;
 }
 
-void delNode(stuNode* p)           //删除 p 节点的后继
+void delNode(stuNode* p)            //删除 p 节点的后继
 {
 	stuNode* pNext;
 	if (p->next != NULL)
@@ -23,14 +36,14 @@ void delNode(stuNode* p)           //删除 p 节点的后继
 	}
 }
 
-stuNode* insertInnerNode(stuNode* p, stuNode* ins)  //将链表中的 ins->next 移除，并在节点 p 后插入，返回新的 ins-next
+stuNode* insertInnerNode(stuNode* p, stuNode* ins)  //将链表中的 ins->next 移除，并在节点 p 后插入。若 ins 是列表的第 n 项，返回列表的第 n+1 项
 {
-	if (p == ins) return p;
+	if (p == ins) return ins->next;
 	stuNode* insNext = ins->next;               //为 ins->next 所指空间新建指针
 	ins->next = insNext->next;                  //重置 ins 的后继 
 	insNext->next = p->next;                    //重置 insNext 的后继
 	p->next = insNext;                          //重置 p 的后继
-	return insNext;
+	return ins;                                 //因为 ins 之后的某项被移到 ins 之前，ins 成为列表的第 n+1 项
 }
 
 void insertNode(stuNode* p, stuNode* newp)  //在 p 后插入节点 newp
@@ -52,7 +65,7 @@ stuNode* searchLessThan(stuNode* startNode, stuNode* endNode, int key)  //返回 s
 		}
 		p = p->next;
 	}
-	return p;
+	return endNode;
 }
 
 void listInsertSort_D(stuNode* head)    //插入排序（降序）
@@ -60,10 +73,9 @@ void listInsertSort_D(stuNode* head)    //插入排序（降序）
 	if (head == NULL) return;
 	if (head->next == NULL) return;
 	stuNode* p = head->next;
-	while (p->next != NULL)
+	while (p != NULL && p->next != NULL)
 	{
 		p = insertInnerNode(searchLessThan(head, p, p->next->fScore[4]), p); //将 p->next 插入到 head 到 p 之间的适当位置	
-		p = p->next;
 	}
 }
 
@@ -73,16 +85,16 @@ void readTxtFile(const char* fileName)
 	in.open("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\学生成绩链表测试1.txt");
 	if (!in.is_open()) return;
 	int nStuCount = 0;
-	char cTemp[128];
+
 	in >> nStuCount;
 
 	stuNode* pHeader = new stuNode();
 	stuNode* pT = pHeader;
 	for (int i = 0; i < nStuCount; i++)
 	{
+		char cTemp[128];
 		stuNode* pStu = new stuNode();
-
-		in >> pStu->sName >> pStu->sNum >> cTemp >> cTemp;
+		in >> pStu->sNum >> pStu->sName >> cTemp >> cTemp;
 		for (int j = 0; j < 5; j++)
 		{
 			in >> pStu->fScore[j];
@@ -95,34 +107,12 @@ void readTxtFile(const char* fileName)
 
 	listInsertSort_D(pHeader);
 
-	/*stuNode* pStart = pHeader;
-	while (pStart->next->next->next != 0)
-	{
-		stuNode* pPreA = pStart;
-		stuNode* pA = pStart->next;
-		stuNode* pB = pStart->next->next;
-		while (pB->next != 0)
-		{
-			if (pA->fScore[4] < pB->fScore[4])
-			{
-				pPreA->next = pB;
-				pA->next = pB->next;
-				pB->next = pA;
-			}
-			pPreA = pPreA->next;
-			pA = pA->next;
-			pB = pB->next;
-		}
-		pStart = pStart->next;
-	}
-	*/
-
 	ofstream out;
 	out.open("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\输出成绩.txt");
 	pT = pHeader->next;
 	while (pT)
 	{
-		out << pT->sName << "  " << pT->sNum << "  ";
+		out << pT->sNum << "  " << setiosflags(ios::left) << setw(6) << pT->sName << "  ";
 		for (int j = 0; j < 5; j++)
 		{
 			out << pT->fScore[j] << " ";
@@ -132,5 +122,5 @@ void readTxtFile(const char* fileName)
 	}
 	out.close();
 
-
+	DelList(pHeader);
 }
