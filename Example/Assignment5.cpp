@@ -68,7 +68,7 @@ stuNode* searchLessThan(stuNode* startNode, stuNode* endNode, int key)  //·µ»Ø s
 	return endNode;
 }
 
-void listInsertSort_D(stuNode* head)    //²åÈëÅÅÐò£¨½µÐò£©
+void listInsertSort_D(stuNode* head)    //Á´±í²åÈëÅÅÐò£¨½µÐò£©
 {
 	if (head == NULL) return;
 	if (head->next == NULL) return;
@@ -124,3 +124,7 @@ void readTxtFile(const char* fileName)
 
 	DelList(pHeader);
 }
+
+
+
+

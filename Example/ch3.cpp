@@ -279,6 +279,179 @@ void P3_7()
 }
 
 
+//P3_8
+void swap_i(int * num1, int * num2)
+{
+	int t;
+	t = *num1;
+	*num1 = *num2;
+	*num2 = t;
+}
+
+void swap(void* num1, void* num2, int size)
+{
+	char* first = (char*)num1, *second = (char*)num2;
+	for (int k = 0; k < size; k++)
+	{
+		char temp;
+		temp = first[k];
+		first[k] = second[k];
+		second[k] = temp;
+	}
+}
+
+void P3_8()
+{
+	int a = 3, b = 6;
+	double x = 2.3, y = 4.5;
+	char c1[8] = "John", c2[8] = "Antony";
+	cout << "before swap:a = " << a << " b = " << b << endl;
+	swap_i(&a, &b);
+	cout << "after swap:a = " << a << " b = " << b << endl;
+	cout << "before swap:x = " << x << " y = " << y << endl;
+	swap(&x, &y, sizeof(x));
+	cout << "after swap:x = " << x << " y = " << y << endl;
+	cout << "before swap:c1 = " << c1 << " c2 = " << c2 << endl;
+	swap(c1, c2, sizeof(c1));
+	cout << "after  swap:c1 = " << c1 << " c2 = " << c2 << endl;
+}
+
+//P3_9
+
+char* ladd(char* s1, char* s2)
+{
+	int n1, n2, n;
+	char* res, c = 0;
+	n1 = strlen(s1);
+	n2 = strlen(s2);
+	n = n1 > n2 ? n1 : n2;
+	res = new char[n + 2];
+	for (int i = n + 1; i >= 0; i--)
+		res[i] = i > n - n1 ? s1[i - n - 1 + n1] : '0';
+	for (int i = n; i >= 0; i--)
+	{
+		char tchar;
+		tchar = i > n - n2 ? res[i] - '0' + s2[i - n + n2 + n1] - '0' + c : res[i] - '0' + c;
+		c = tchar > 9 ? 1 : 0;
+		res[i] = c > 0 ? tchar - 10 + '0' : tchar + '0';
+	}
+	return res;
+}
+
+void P3_9()
+{
+	char num1[100], num2[100], *num;
+	cin >> num1 >> num2;
+	num = ladd(num1, num2);
+	cout << num1 << " + " << num2 << " = " << num << endl;
+	delete[] num;
+}
+
+//P3_10
+namespace P3_10
+{
+	int add(int a, int b)
+	{
+		return a + b;
+	}
+
+	int sub(int a, int b)
+	{
+		return a - b;
+	}
+	int mu1(int a, int b)
+	{
+		return a * b;
+	}
+
+	int divi(int a, int b)
+	{
+		if (b == 0) return 0x7fffffff;
+		else return a / b;
+	}
+
+
+	int(*menu[]) (int a, int b) = { add, sub, mu1, divi };   //函数指针数组
+
+	void P3_10()
+	{
+		int num1, num2, choice;
+		cout << "Select operator:" << endl;
+		cout << "    1:add" << endl;
+		cout << "    2:sub" << endl;
+		cout << "    3:multiply" << endl;
+		cout << "    4:divide" << endl;
+		cin >> choice;
+		cout << "Input number (a,b) :";
+		cin >> num1 >> num2;
+		cout << "Result :" << menu[choice - 1](num1, num2) << endl;
+	}
+}
+
+
+//P3_11
+namespace P3_11
+{
+	void swap(int &refx, int &refy)
+	{
+		int temp;
+		temp = refx;
+		refx = refy;
+		refy = temp;
+	}
+
+	void P3_11()
+	{
+		int x = 3, y = 5;
+		cout << "before swap x = " << x << " y= " << y << endl;
+		swap(x, y);
+		cout << "after swap : x=" << x << "y=" << y << endl;
+	}
+}
+
+//P3_12
+int max1(int a[], int n)
+{
+	int t = 0;
+	for (int i = 0; i < n; i++)
+		if (a[i] > a[t]) t = i;
+	return a[t] + 0;
+}
+
+
+int& max2(int a[], int n)
+{
+	int t = 0;
+	for (int i = 0; i < n; i++)
+		if (a[i] > a[t]) t = i;
+	return a[t];
+}
+
+
+int& sum(int a[], int n)
+{
+	int s = 0;
+	for (int i = 0; i < n; i++)
+		s += a[i];
+	return s;
+}
+
+void P3_12()
+{
+	int a[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int m1 = max1(a, 10);
+	int m2 = max2(a, 10);
+	int & m3 = max2(a, 10);
+	int & m4 = sum(a, 10);
+	cout << "m1 = " << m1 << endl;
+	cout << "m2 = " << m2 << endl;
+	cout << "m3 = " << m3 << endl;
+	cout << "m4 = " << m4 << endl;
+	m3 += 10;
+	max2(a, 10) -= 100;
+	cout << sum(a, 10) << endl;
+}
+
 //P3_13
 namespace P3_13
 {
@@ -424,9 +597,9 @@ namespace P3_14
 				cout << "new NODE fail!" << endl;
 				exit(0);
 			}
-			strcpy_s(newp->name, name);       
+			strcpy_s(newp->name, name);
 			newp->score = score;
-			newp->next = NULL;                           
+			newp->next = NULL;
 			p = Search(head, score);          //返回从左至右第一个分数小于当前 score 的节点的前驱，若无，返回尾节点
 			InsertNode(p, newp);              //在 p 处插入新节点 newp
 			cin >> name >> score;
@@ -441,5 +614,35 @@ namespace P3_14
 	}
 }
 
+//P3_15
+void P3_15()
+{
+
+	union UData
+	{
+		char Ch;
+		short Sint;
+		long Lint;
+		unsigned Uint;
+		float f;
+		double d;
+		char str[10];
+	};
+	UData u;
+
+	strcpy(u.str, "123456789");
+
+	cout << "char :" << '\t' << u.Ch << endl;
+
+	cout << "short :" << '\t' << hex << u.Sint << endl;
+	cout << "long :" << '\t' << u.Lint << endl;
+
+	cout << "unsigned :" << '\ t' << u.Uint << endl;
+
+	cout << "float :" << '\ t' << u.f << endl;
+	cout << "double :" << '\ t' << u.d << endl;
+	cout << "string :" << '\ t' << u.str < i < endl;
 
 
+
+}

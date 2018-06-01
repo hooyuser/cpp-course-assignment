@@ -97,7 +97,26 @@ void testTraverseByteWise()  //用函数模板traverseByte对变量逐字节倒置
 	cout << chBit << endl << endl;
 }
 
-void writeTxtFile(char* TxtFile)
-{
 
-}
+struct Student
+{
+	char ID[32];
+	char Name[32];
+	float Score[5];
+};
+typedef struct Student Stu;
+
+
+
+
+
+void testStudentList()
+{
+	SList<Stu> StuList = SList<Stu>();
+	Stu myStu = { "10086","Mobile",{10,20,30,40,50} };
+	StuList.insertAsLast(myStu);
+	cout << StuList.first()->data.ID << endl;
+	myStu = { "110","Police",{ 20,20,80,50,30 } };
+	StuList.insertAsLast(myStu);
+	StuList.removeSucc(StuList.first());
+};
