@@ -598,7 +598,7 @@ namespace P5_12
 		const int a;
 		static const int b;
 	public:
-		A(int i):a(i),r(a)
+		A(int i) :a(i), r(a)
 		{
 			cout << "constructor!" << endl;
 		}

@@ -62,6 +62,11 @@ namespace P5_12 { void P5_12(); }
 //Chapter6
 namespace P6_1 { void P6_1(); }
 namespace P6_2 { void P6_2(); }
+namespace P6_3 { void P6_3(); }
+namespace P6_4 { void P6_4(); }
+namespace P6_5 { void P6_5(); }
+namespace P6_6 { void P6_6(); }
+namespace P6_7 { void P6_7(); }
 
 
 //Assignment1
