@@ -2,7 +2,6 @@
 #include<iomanip>
 using namespace std;
 
-
 //P3_1
 enum city { Beijing, Shanghai, Tianjin = 6, Chongqing };
 
@@ -617,7 +616,6 @@ namespace P3_14
 //P3_15
 void P3_15()
 {
-
 	union UData
 	{
 		char Ch;
@@ -629,20 +627,12 @@ void P3_15()
 		char str[10];
 	};
 	UData u;
-
-	strcpy(u.str, "123456789");
-
+	strcpy_s(u.str, "123456789");
 	cout << "char :" << '\t' << u.Ch << endl;
-
 	cout << "short :" << '\t' << hex << u.Sint << endl;
 	cout << "long :" << '\t' << u.Lint << endl;
-
-	cout << "unsigned :" << '\ t' << u.Uint << endl;
-
-	cout << "float :" << '\ t' << u.f << endl;
-	cout << "double :" << '\ t' << u.d << endl;
-	cout << "string :" << '\ t' << u.str < i < endl;
-
-
-
+	cout << "unsigned :" << '\t' << u.Uint << endl;
+	cout << "float :" << '\t' << u.f << endl;
+	cout << "double :" << '\t' << u.d << endl;
+	cout << "string :" << '\t' << u.str << endl;
 }

@@ -123,6 +123,8 @@
     <ClCompile Include="ch2.cpp" />
     <ClCompile Include="ch3.cpp" />
     <ClCompile Include="ch4.cpp" />
+    <ClCompile Include="ch5.cpp" />
+    <ClCompile Include="ch6.cpp" />
     <ClCompile Include="Others.cpp" />
     <ClCompile Include="start.cpp" />
     <ClCompile Include="Assignment4.cpp" />
@@ -133,6 +135,9 @@
   <ItemGroup>
     <Text Include="sourse_file.txt" />
     <Text Include="学生成绩链表测试1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

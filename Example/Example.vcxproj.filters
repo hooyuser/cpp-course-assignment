@@ -48,6 +48,12 @@
     <ClCompile Include="Assignment5.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ch5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ch6.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">
@@ -61,5 +67,8 @@
     <Text Include="学生成绩链表测试1.txt">
       <Filter>资源文件</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
