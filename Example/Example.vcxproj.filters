@@ -54,9 +54,27 @@
     <ClCompile Include="ch6.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="p4_1_p1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="p4_1_p2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ch7.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ch8.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mymath.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TsingHua.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

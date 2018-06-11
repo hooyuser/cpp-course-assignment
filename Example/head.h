@@ -44,6 +44,17 @@ namespace P3_13 { void P3_13(); }
 namespace P3_14 { void P3_14(); }
 void P3_15();
 
+
+//Chapter4
+void P4_1();
+namespace P4_2 { void P4_2(); }
+void P4_3();
+namespace P4_4 { void P4_4(); }
+namespace P4_5 { void P4_5(); }
+void P4_6();
+namespace P4_7 { void P4_7(); }
+
+
 //Chapter5
 namespace P5_1_A { void P5_1_A(); }
 namespace P5_1_B { void P5_1_B(); }
@@ -67,6 +78,23 @@ namespace P6_4 { void P6_4(); }
 namespace P6_5 { void P6_5(); }
 namespace P6_6 { void P6_6(); }
 namespace P6_7 { void P6_7(); }
+
+//Chapter7
+namespace P7_1 { void P7_1(); }
+namespace P7_2 { void P7_2(); }
+namespace P7_3 { void P7_3(); }
+namespace P7_4 { void P7_4(); }
+namespace P7_5 { void P7_5(); }
+namespace P7_6 { void P7_6(); }
+namespace P7_7 { void P7_7(); }
+namespace P7_8 { void P7_8(); }
+namespace P7_9 { void P7_9(); }
+namespace P7_10 { void P7_10(); }
+
+//Chapter8
+void P8_1();
+void P8_2();
+void P8_3();
 
 
 //Assignment1

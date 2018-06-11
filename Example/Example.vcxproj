@@ -125,12 +125,18 @@
     <ClCompile Include="ch4.cpp" />
     <ClCompile Include="ch5.cpp" />
     <ClCompile Include="ch6.cpp" />
+    <ClCompile Include="ch7.cpp" />
+    <ClCompile Include="ch8.cpp" />
     <ClCompile Include="Others.cpp" />
+    <ClCompile Include="p4_1_p1.cpp" />
+    <ClCompile Include="p4_1_p2.cpp" />
     <ClCompile Include="start.cpp" />
     <ClCompile Include="Assignment4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />
+    <ClInclude Include="mymath.h" />
+    <ClInclude Include="TsingHua.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="sourse_file.txt" />
