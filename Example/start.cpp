@@ -112,7 +112,7 @@ int main()
 	//P7_10::P7_10();
 
 	/*Chapter8*/
-	P8_1();
+	//P8_1();
 	//P7_2::P7_2();
 	//P7_3::P7_3();
 	//P7_4::P7_4();
@@ -142,19 +142,19 @@ int main()
 	/*Assignment2*/
 
 	//sortTest();
-	//calendarTest();
+	//calendarTest();   //日历
 
 
 	/*Assignment3*/
-	//strTest();
+	//strTest();        //字符串处理
 
 
 	/*Assignment4*/
-	//manipulateMat();
+	//manipulateMat();  //读写记录矩阵的txt文件
 
 
 	/*Assignment5*/
-	///=readTxtFile("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\学生成绩链表测试.txt");
+	///=readTxtFile("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\学生成绩链表测试.txt");  //链表与文件读写
 
 
 	/***********************/
@@ -162,10 +162,10 @@ int main()
 	/***********************/
 
 	//pointerConvert();
-	//testTraverseByteWise();
+	//testTraverseByteWise();  //字节翻转
 	//testToBitArray();
 
-	//testStudentList();
+	//testStudentList();       //链表模板类的使用
 
 
 	return 0;

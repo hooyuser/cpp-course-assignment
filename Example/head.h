@@ -1,5 +1,7 @@
 #pragma once
-
+/********************************/
+/******EXAMPLES IN TEXTBOOK******/
+/********************************/
 //Chapter1
 void P1_1();
 void P1_2();
@@ -96,7 +98,9 @@ void P8_1();
 void P8_2();
 void P8_3();
 
-
+/**********************/
+/******ASSIGNMENT******/
+/**********************/
 //Assignment1
 void sortThreeNum();
 void harmonicSeries();
@@ -425,7 +429,7 @@ SList<T>::SList(SList<T> const& L, Rank r, int n)
 }
 
 template <typename T>
-SListNodePosi(T) SList<T>::operator[] (Rank r) const  //重载加法操作符，以通过秩直接访问节点位置（复杂度O(n)）
+SListNodePosi(T) SList<T>::operator[] (Rank r) const  //重载[]操作符，以通过秩直接访问节点位置（复杂度O(n)）
 {
 	if (size() == 0)
 		return nullptr;
@@ -436,7 +440,6 @@ SListNodePosi(T) SList<T>::operator[] (Rank r) const  //重载加法操作符，以通过秩
 			p = p->succ;  //顺数第r个节点即是
 		return p;  //目标节点，返回位置
 	}
-
 }
 
 template <typename T>
@@ -489,5 +492,4 @@ void SList<T>::reverse()
 		p = pr;
 	}
 	head->succ = q;
-	return head;
 }

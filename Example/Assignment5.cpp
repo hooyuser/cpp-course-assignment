@@ -79,7 +79,7 @@ void listInsertSort_D(stuNode* head)    //链表插入排序（降序）
 	}
 }
 
-void readTxtFile(const char* fileName)
+void readTxtFile(const char* fileName)  //文件读写
 {
 	ifstream in;
 	in.open("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\学生成绩链表测试1.txt");

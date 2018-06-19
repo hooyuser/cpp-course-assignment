@@ -61,7 +61,6 @@ const bool isLeapYear(int year)
 	{
 		return true;
 	}
-
 	return false;
 }
 
@@ -87,6 +86,10 @@ void printMonthCalendar(int nWhatDay, int nDaysOfMonth) //nWhatDay表示该月第一天
 	cout << endl;
 }
 
+const int getNextMonthFisrtDayIsWhatDay(int nWhatDay, int nDaysOfMonth) //nWhatDay表示该月第一天是星期几，nDaysOfMonth表示该月天数
+{
+	return ((nDaysOfMonth + nWhatDay) % 7) ? (nDaysOfMonth + nWhatDay) % 7 : 7;
+}
 
 void printAnnualCalendar(int year, int nWhatDay, int months = 12) //year为年份，nWhatDay表示该年第一天是星期几,months表示打印前几个月
 {
@@ -98,11 +101,6 @@ void printAnnualCalendar(int year, int nWhatDay, int months = 12) //year为年份，
 		firstDay = getNextMonthFisrtDayIsWhatDay(firstDay, month[isLeapYear(year)][i]);
 		cout << endl << endl;
 	}
-}
-
-const int getNextMonthFisrtDayIsWhatDay(int nWhatDay, int nDaysOfMonth) //nWhatDay表示该月第一天是星期几，nDaysOfMonth表示该月天数
-{
-	return ((nDaysOfMonth + nWhatDay) % 7) ? (nDaysOfMonth + nWhatDay) % 7 : 7;
 }
 
 void calendarTest()
