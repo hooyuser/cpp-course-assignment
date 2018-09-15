@@ -1,4 +1,4 @@
-#include"head.h"
+#include"header.h"
 #include<iostream>
 #include<iomanip>
 
@@ -52,7 +52,7 @@ int main()
 	//P3_6();
 	//P3_7();
 	//P3_8();
-	//P3_9(); //Unpassed
+	//P3_9(); 
 	//P3_10::P3_10();
 	//P3_11::P3_11();
 	//P3_12();
@@ -65,7 +65,7 @@ int main()
 
 	//P4_1();
 	//P4_2::P4_2();
-	//P4_3(); //Unpassed
+	//P4_3(); 
 	//P4_4::P4_4();
 	//P4_5::P4_5();
 	//P4_6();
@@ -129,7 +129,7 @@ int main()
 	/******ASSIGNMENT******/
 	/**********************/
 
-	/*Assignment1*/
+	/*Assignment1.cpp*/
 
 	//sortThreeNum();
 	//harmonicSeries();
@@ -139,27 +139,29 @@ int main()
 	//multiplication();
 
 
-	/*Assignment2*/
+	/*Assignment2.cpp*/
 
 	//sortTest();
 	//calendarTest();   //日历
 
 
-	/*Assignment3*/
+	/*Assignment3.cpp*/
 	//strTest();        //字符串处理
 
 
-	/*Assignment4*/
+	/*Assignment4.cpp*/
 	//manipulateMat();  //读写记录矩阵的txt文件
 
 
-	/*Assignment5*/
-	///=readTxtFile("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\学生成绩链表测试.txt");  //链表与文件读写
+	/*Assignment5.cpp*/
+	///=readTxtFile("D:\\CHY\\Program\\C++\\Textbook\\Example\\Example\\学生成绩链表测试.txt");  //普通链表操作与文件读写
 
 
 	/***********************/
 	/******OTHER ITEMS******/
 	/***********************/
+	/*Others.cpp*/
+
 
 	//pointerConvert();
 	//testTraverseByteWise();  //字节翻转

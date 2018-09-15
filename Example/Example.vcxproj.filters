@@ -68,13 +68,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="head.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="mymath.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="TsingHua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="header.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

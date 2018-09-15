@@ -259,7 +259,7 @@ public:
 	}
 
 	// 析构函数
-	~SList();  //释放（包含头、尾哨兵在内的）所有节点
+	virtual ~SList();  //释放（包含头、尾哨兵在内的）所有节点
 
 			  // 只读访问接口
 	Rank size() const  //规模
@@ -292,8 +292,6 @@ public:
 		}
 	}
 
-
-
 	// 可写访问接口
 	SListNodePosi(T) insertAsFirst(T const& e);  //将e当作首节点插入
 
@@ -302,6 +300,29 @@ public:
 	T removeSucc(SListNodePosi(T) p);  //删除合法位置p处的节点,返回被删除节点
 
 	void reverse();  //前后倒置
+
+	void DeleteElement(T const& data)
+	{
+		SListNodePosi(T) pA=header;
+		SListNodePosi(T) pB = header->succ;
+		while (pB)
+		{
+			if (pB->data == data)
+			{
+				pA->succ = pB->succ;	//重建pA后继	
+				delete pB;              //删除pB		
+				pB = pA->succ;          //更新pB位置
+				continue;
+			}
+			else
+			{
+				pA = pA->succ;
+				pB = pB->succ;
+			}
+		}
+	}
+
+
 
 	/*
 	bool valid(SListNodePosi(T) p)  //判断位置p是否对外合法
@@ -315,6 +336,8 @@ public:
 	{
 		return find(e, _size, trailer);
 	}
+
+	
 
 	SListNodePosi(T) find(T const& e, int n, SListNodePosi(T) p) const;  //无序区间查找
 
@@ -359,15 +382,12 @@ public:
 	int uniquify();  //有序去重
 
 	
-
 					 // 遍历
 	void traverse(void(*visit) (T&));  //遍历，依次实施visit操作（函数指针，只读或局部性修改）
 
 	template <typename VST>  //操作器
 	void traverse(VST& visit);  //遍历，依次实施visit操作（函数对象，可全局性修改）*/
 };
-
-
 
 
 
@@ -481,15 +501,18 @@ SList<T>::~SList()
 template <typename T>
 void SList<T>::reverse()
 {
-	SListNodePosi(T) p, q, pr;
+	SListNodePosi(T) p;
+	SListNodePosi(T) q;
+	SListNodePosi(T) pr;
 	p = header->succ;
 	q = NULL;
 	header->succ = NULL;
-	while (p) {
+	while (p) 
+	{
 		pr = p->succ;
 		p->succ = q;
 		q = p;
 		p = pr;
 	}
-	head->succ = q;
+	header->succ = q;
 }

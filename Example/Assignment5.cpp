@@ -1,7 +1,7 @@
 #include<iostream>
 #include<iomanip>
 #include<fstream>
-#include"head.h"
+#include"header.h"
 
 using namespace std;
 

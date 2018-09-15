@@ -1,5 +1,5 @@
 #include<iostream>
-#include"head.h"
+#include"header.h"
 using namespace std;
 
 void swapPointers(int*& pa, int *& pb)
@@ -35,12 +35,12 @@ void pointerConvert()  //指针的强制转换演示
 	cout << "A[1] = " << A[1] << endl; //0x FE FF FF FF -> -2
 }
 
-void traverseInt(int& n)
+void traverseInt(int& n)    //位运算翻转整型变量
 {
 	n = ((n >> 24) & 0xFF) | ((n >> 8) & 0xFF00) | ((n << 8) & 0xFF0000) | ((n << 24) & 0xFF000000);//从低地址到高地址依次提取字节
 }
 
-void testToBitArray()
+void testToBitArray()       //使用模板函数 ToBitArray<T> 将变量转化为 char 数组
 {
 	char chBit[100] = { 0 };
 
@@ -110,7 +110,7 @@ typedef struct Student Stu;
 
 
 
-void testStudentList()
+void testStudentList()            //链表模板类测试
 {
 	SList<Stu> StuList = SList<Stu>();
 	Stu myStu = { "10086","Mobile",{10,20,30,40,50} };
@@ -118,5 +118,7 @@ void testStudentList()
 	cout << StuList.first()->data.ID << endl;
 	myStu = { "110","Police",{ 20,20,80,50,30 } };
 	StuList.insertAsLast(myStu);
+	StuList.reverse();
 	StuList.removeSucc(StuList.first());
+	cout << StuList.first()->data.ID << endl;
 };

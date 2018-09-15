@@ -134,7 +134,7 @@
     <ClCompile Include="Assignment4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="head.h" />
+    <ClInclude Include="header.h" />
     <ClInclude Include="mymath.h" />
     <ClInclude Include="TsingHua.h" />
   </ItemGroup>
